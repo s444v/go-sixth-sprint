@@ -1,13 +1,14 @@
 package service
 
 import (
-	"fmt"
 	"regexp"
+
+	"github.com/s444v/go-sixth-sprint/pkg/morse"
 )
 
-func stringDetector(s string) string {
-	if check := regexp.MustCompile(`.-`); check.MatchString(s) {
-		fmt.Println(true)
+func Detector(s string) string {
+	if check := regexp.MustCompile(`^[ .-]+$`); check.MatchString(s) {
+		return morse.ToText(s)
 	}
-	fmt.Println(false)
+	return morse.ToMorse(s)
 }
