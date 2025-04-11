@@ -13,7 +13,7 @@ import (
 func MainHandler(w http.ResponseWriter, r *http.Request) {
 	content, err := os.ReadFile("index.html")
 	if err != nil {
-		http.Error(w, "Cant read file", http.StatusInternalServerError)
+		http.Error(w, "Cant read file", http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
